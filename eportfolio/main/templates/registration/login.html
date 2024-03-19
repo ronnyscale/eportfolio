@@ -1,0 +1,94 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <title>Авторизация</title>
+    {% bootstrap_css %}
+    <style>
+      h1 {
+        font-size: 24px;
+      }
+      .form-container {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      form {
+        text-align: left;
+      }
+      .register-container {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Логотип</a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Авторизация</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">О сервисе</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Контакты</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Войти</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="form-container">
+          <h1 class="text-center">Авторизация</h1>
+          {% if error %}
+            <div class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+          {% endif %}
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="username">Логин:</label>
+              <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Пароль:</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block" value="Войти">
+          </form>
+          <div class="register-container text-center">
+            <a href="{% url 'main:register' %}"><button type="button" class="btn btn-link">Регистрация</button></a>
+            <a href="#"><button type="button" class="btn btn-link">Забыли пароль?</button></a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="bg-light">
+      <div class="container text-center">
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <img src="{% static 'images/vk.png' %}" alt="VK" />
+          </li>
+          <li class="list-inline-item">
+            <img src="{% static 'images/telegram.png' %}" alt="Telegram" />
+          </li>
+          <li class="list-inline-item">
+            <img src="{% static 'images/youtube.png' %}" alt="YouTube" />
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

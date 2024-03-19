@@ -1,0 +1,19 @@
+#seeButton {
+    background-color: #3d3632;
+    color: #fff;
+}
+
+#writeButton {
+    background-color: #3d3632;
+    color: #fff;
+}
+
+#footer {
+    bottom: 0;
+    width: 100%;
+}
+
+#aName {
+    color: inherit;
+    text-decoration: none;
+}

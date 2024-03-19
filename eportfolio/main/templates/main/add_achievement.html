@@ -1,0 +1,23 @@
+<!-- add_achievement.html -->
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Achievement</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Add Achievement</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form layout='horizontal' %}
+            <button type="submit" class="btn btn-primary">Save Achievement</button>
+        </form>
+    </div>
+    
+    {% bootstrap_javascript %}
+</body>
+</html>
